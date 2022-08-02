@@ -2,6 +2,7 @@ const router=require("express").Router();
 const User=require("../models/User");
 const bcrypt=require("bcrypt");
 
+
 //Register
 router.post("/register",async (req,res)=>{
    
@@ -15,7 +16,7 @@ router.post("/register",async (req,res)=>{
         password:hashedPassword
     });
     const user=await newUser.save();
-    res.status(200).json(user)
+    res.status(200).json(user);
    }catch(err){
     res.status(500).json(err);
    }
@@ -33,6 +34,8 @@ router.post("/login",async (req,res)=>{
         !valiPassword && res.status(400).json("wrong password");
 
         res.status(200).json(user)
+        
+ 
     }catch(err){
         res.status(500).json(err);
     }

@@ -15,7 +15,6 @@ export default function Feed({username}) {
        ?await axios.get("/post/profile/"+username)
        :await axios.get("post/timeline/62d916f25b054932d58f77c3");
 
-      //  const res =await axios.get("post/timeline/62d916f25b054932d58f77c3");
       setPost(res.data);
     };
     getPost();
